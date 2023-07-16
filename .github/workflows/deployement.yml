@@ -21,7 +21,7 @@ jobs:
           terraform_version: 1.4.0
 
       - name: Terraform fmt
-        run: terraforn fmt
+        run: terraform fmt
         working-directory: .
 
       - name: Terraform init
@@ -32,10 +32,10 @@ jobs:
         run: terraform validate
         working-directory: .
 
-      - name: Terraforn Plan
-        run: terraforn plan
+      - name: Terraform Plan
+        run: terraform plan
         working-directory: .
 
-      - name: Terraforn apply
-        run: terraforn apply -auto-approve
+      - name: Terraform apply
+        run: terraform apply -auto-approve
         working-directory: .
