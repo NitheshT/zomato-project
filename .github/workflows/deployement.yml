@@ -4,7 +4,7 @@ on:
       - master
 
 jobs:
-  terraforn:
+  terraform:
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -12,30 +12,30 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
     steps:
-    - name: Checkout Terraform Code
-      uses: actions/checkout@v2
+      - name: Checkout Terraform Code
+        uses: actions/checkout@v2
 
-    - name: Terraform Installation
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.4.0
+      - name: Terraform Installation
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.4.0
 
-    - name: Terraform fmt
-      run: terraforn fmt
-      working-directory: .
+      - name: Terraform fmt
+        run: terraforn fmt
+        working-directory: .
 
-    - name: Terraform init
-      run: terraform init
-      working-directory: .
+      - name: Terraform init
+        run: terraform init
+        working-directory: .
 
-    - name: Terraform Validate
-      run: terraform validate
-      working-directory: .
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: .
 
-    - name: Terraforn Plan
-      run: terraforn plan
-      working-directory: .
+      - name: Terraforn Plan
+        run: terraforn plan
+        working-directory: .
 
-    - name: Terraforn apply
-      run: terraforn apply -auto-approve
-      working-directory: .
+      - name: Terraforn apply
+        run: terraforn apply -auto-approve
+        working-directory: .
