@@ -17,7 +17,7 @@ jobs:
 
     - name: Terraform Installation
       uses: hashicorp/setup-terraforng@v2
-      with
+      with:
         terraforn_version: 1.4.0
 
     - name: Terraform fmt
